@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://smartservices.uniajc.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://smartservices.uniajc.com" xmlns:intf="http://smartservices.uniajc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://smartservices.uniajc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getOrdenPedido">
+    <complexType>
+     <sequence>
+      <element name="documentoIdentidadPG" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOrdenPedidoResponse">
+    <complexType>
+     <sequence>
+      <element name="getOrdenPedidoReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getOrdenPedidoRequest">
+
+      <wsdl:part element="impl:getOrdenPedido" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOrdenPedidoResponse">
+
+      <wsdl:part element="impl:getOrdenPedidoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OrdenPedidoWS">
+
+      <wsdl:operation name="getOrdenPedido">
+
+         <wsdl:input message="impl:getOrdenPedidoRequest" name="getOrdenPedidoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOrdenPedidoResponse" name="getOrdenPedidoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OrdenPedidoWSSoapBinding" type="impl:OrdenPedidoWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getOrdenPedido">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOrdenPedidoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOrdenPedidoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OrdenPedidoWSService">
+
+      <wsdl:port binding="impl:OrdenPedidoWSSoapBinding" name="OrdenPedidoWS">
+
+         <wsdlsoap:address location="http://localhost:8085/SmartServicesUNIAJC/services/OrdenPedidoWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
