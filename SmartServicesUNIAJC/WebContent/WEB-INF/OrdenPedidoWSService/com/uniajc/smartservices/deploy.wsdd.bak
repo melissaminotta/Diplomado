@@ -1,0 +1,29 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from OrdenPedidoWSService WSDL service -->
+
+  <service name="OrdenPedidoWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://smartservices.uniajc.com"/>
+      <parameter name="wsdlServiceElement" value="OrdenPedidoWSService"/>
+      <parameter name="schemaQualified" value="http://smartservices.uniajc.com"/>
+      <parameter name="wsdlServicePort" value="OrdenPedidoWS"/>
+      <parameter name="className" value="com.uniajc.smartservices.OrdenPedidoWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="OrdenPedidoWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getOrdenPedido" qname="operNS:getOrdenPedido" xmlns:operNS="http://smartservices.uniajc.com" returnQName="retNS:getOrdenPedidoReturn" xmlns:retNS="http://smartservices.uniajc.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:documentoIdentidadPG" xmlns:pns="http://smartservices.uniajc.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getOrdenPedido"/>
+
+  </service>
+</deployment>
