@@ -13,6 +13,7 @@ public class OrdenPedidoWS {
 			jsonResult = obOrdenPedidoBL.getOrdenPedido(documentoIdentidadPG);
 		}catch(ExceptionUtil ex) {
 			jsonResult = "";
+			ex.printStackTrace();
 		}
 		
 		return jsonResult;

@@ -12,8 +12,8 @@ public class OrdenPedidoBL {
 		StringBuilder jsonResult = new StringBuilder();
 		
 		OrdenPedidoDA obOrdenPedidoDA = new OrdenPedidoDA();
-		ArrayList<OrdenPedidoTO> arrListOrdenesPedido = obOrdenPedidoDA.getOrdenPedidoPrueba(documentoIdentidadPG);
-		//ArrayList<OrdenPedidoTO> arrListOrdenesPedido = obOrdenPedidoDA.getOrdenPedido(documentoIdentidadPG);
+		//ArrayList<OrdenPedidoTO> arrListOrdenesPedido = obOrdenPedidoDA.getOrdenPedidoPrueba(documentoIdentidadPG);
+		ArrayList<OrdenPedidoTO> arrListOrdenesPedido = obOrdenPedidoDA.getOrdenPedido(documentoIdentidadPG);
 		if(arrListOrdenesPedido.size()>0) {
 			jsonResult.append("{");
 			jsonResult.append("\"ordenespedido\":");
